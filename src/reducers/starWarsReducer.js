@@ -1,4 +1,5 @@
-import { FETCHING, SUCCESS, FAILURE } "../actions";
+import { FETCHING, SUCCESS, FAILURE } from "../actions";
+
 const initialState = {
   characters: [],
   isFetching: false,
@@ -24,6 +25,7 @@ export const charsReducer = (state = initialState, action) => {
     case FAILURE:
       return {
         ...state,
+        isFetching: false,
         error: 'error, try using the force'
       }
     default:
