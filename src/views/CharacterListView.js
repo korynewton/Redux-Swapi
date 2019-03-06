@@ -19,9 +19,12 @@ class CharacterListView extends React.Component {
   
   render() {
     return (
-      <div>
+      <div className='mainWrapper'>
         {this.props.isFetching && (
-        <Loader type="Ball-Triangle" color="#00BFFF" height="90" width="60" />
+        <div>  
+          <Loader type="TailSpin" color="#000000" height="180" width="120" margin="100px" />
+          <h5>Loading...</h5>
+        </div>  
         )}
         {this.props.characters && (
           <div className="CharactersList_wrapper">
@@ -29,19 +32,7 @@ class CharacterListView extends React.Component {
           </div>
         )}
       </div>
-    )}
-      
-    
-
-    // if (this.props.fetching) {
-    //   // return something here to indicate that you are fetching data
-    // }
-    // return (
-    //   <div className="CharactersList_wrapper">
-    //     <CharacterList characters={this.props.characters} />
-    //   </div>
-    // );
-      
+    )}      
 }
 
 // our mapStateToProps needs to have two properties inherited from state
