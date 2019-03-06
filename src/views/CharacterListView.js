@@ -5,6 +5,8 @@ import { CharacterList } from "../components";
 // import actions
 import { fetchCharacters } from '../actions'
 
+import Loader from 'react-loader-spinner'
+
 class CharacterListView extends React.Component {
 
 
@@ -16,16 +18,30 @@ class CharacterListView extends React.Component {
 
   
   render() {
-    if (this.props.fetching) {
-      <h1>loading ...</h1>
-      // return something here to indicate that you are fetching data
-    }
     return (
-      <div className="CharactersList_wrapper">
-        <CharacterList characters={this.props.characters} />
+      <div>
+        {this.props.isFetching && (
+        <Loader type="Ball-Triangle" color="#00BFFF" height="90" width="60" />
+        )}
+        {this.props.characters && (
+          <div className="CharactersList_wrapper">
+            <CharacterList characters={this.props.characters} />;
+          </div>
+        )}
       </div>
-    );
-  }
+    )}
+      
+    
+
+    // if (this.props.fetching) {
+    //   // return something here to indicate that you are fetching data
+    // }
+    // return (
+    //   <div className="CharactersList_wrapper">
+    //     <CharacterList characters={this.props.characters} />
+    //   </div>
+    // );
+      
 }
 
 // our mapStateToProps needs to have two properties inherited from state
